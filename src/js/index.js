@@ -1,5 +1,8 @@
-require('./login');
+// require('./login');
 
-document.write("Welcome to webpack tuts lets learn !");
+import {validateLogin} from './login';
 
+document.write("Welcome to webpack tuts lets learn Hello !");
+
+validateLogin('admin', 'admin');
 console.log("App loaded");

@@ -1,21 +1,22 @@
-
-
+var path = require('path');
 module.exports = {
     entry: './src/js',
     output: {
+        path: path.resolve('build/js/'),
+        publicPath: '/public/assets/js/',
         filename: 'bundle.js'
     },
+
+    devServer:{
+        contentBase: 'public'
+    },
+
     module: {
         rules: [
-            {
-                test: [/\.js$/, /\.es6$/],
-                exclude: /node_modules/,
-                loader:"jshint-loader"
-            }
         ],
         loaders: [
             {
-                test: /\.es6$/,
+                test: [/\.js$/, /\.es6$/],
                 exclude: /node_modules/,
                 loader: "babel-loader"
             }
