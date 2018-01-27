@@ -1,0 +1,20 @@
+{
+  "name": "webpack_tuts",
+  "version": "1.0.0",
+  "description": "web pack tutorial",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepi2003/webpack_tuts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepi2003/webpack_tuts/issues"
+  },
+  "homepage": "https://github.com/deepi2003/webpack_tuts#readme"
+}
