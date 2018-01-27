@@ -1,11 +1,20 @@
 var path = require('path');
+var webpack = require('webpack');
+
+
+// var commonsPlugin = new webpack.optimize.CommonsChunkPlugin( { name: "login", filename: "login.js", minChunks: "Infinity"});
 module.exports = {
-    entry: './src/js',
+    context: path.resolve('src/js'),
+    entry: {
+        about: './about.js',
+        index: './index.js'
+    },
     output: {
         path: path.resolve('build/js/'),
         publicPath: '/public/assets/js/',
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
+    // plugins: [commonsPlugin],
 
     devServer:{
         contentBase: 'public'
