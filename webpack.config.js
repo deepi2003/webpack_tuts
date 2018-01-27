@@ -6,6 +6,13 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
+        rules: [
+            {
+                test: [/\.js$/, /\.es6$/],
+                exclude: /node_modules/,
+                loader:"jshint-loader"
+            }
+        ],
         loaders: [
             {
                 test: /\.es6$/,
