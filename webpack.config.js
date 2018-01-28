@@ -30,12 +30,12 @@ module.exports = {
             {
                 test:/\.css$/,
                 exclude:/node_modules/,
-                use: extractTextWebPlugin.extract( {fallback: "style-loader", use:"css-loader"})
+                use: extractTextWebPlugin.extract( {fallback: "style-loader", use:"css-loader!autoprefixer-loader"})
             },
             {
                 test:/\.scss$/,
                 exclude:/node_modules/,
-                loader:extractTextWebPlugin.extract( { fallback: "style-loader", use: "css-loader!sass-loader"})
+                loader:extractTextWebPlugin.extract( { fallback: "style-loader", use: "css-loader!autoprefixer-loader!sass-loader"})
             },
             {
                 test: [/\.js$/, /\.es6$/],
