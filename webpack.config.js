@@ -3,6 +3,8 @@ var webpack = require('webpack');
 
 
 // var commonsPlugin = new webpack.optimize.CommonsChunkPlugin( { name: "login", filename: "login.js", minChunks: "Infinity"});
+var extractTextWebPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
     context: path.resolve('src/js'),
     entry: {
@@ -10,11 +12,14 @@ module.exports = {
         index: './index.js'
     },
     output: {
-        path: path.resolve('build/js/'),
-        publicPath: '/public/assets/js/',
+        path: path.resolve('build/'),
+        publicPath: '/public/assets/',
         filename: '[name].js'
     },
-    // plugins: [commonsPlugin],
+    plugins: [
+        new extractTextWebPlugin("style.css")
+    ],
+
 
     devServer:{
         contentBase: 'public'
@@ -25,12 +30,12 @@ module.exports = {
             {
                 test:/\.css$/,
                 exclude:/node_modules/,
-                loader:"style-loader!css-loader"
+                use: extractTextWebPlugin.extract( {fallback: "style-loader", use:"css-loader"})
             },
             {
                 test:/\.scss$/,
                 exclude:/node_modules/,
-                loader:"style-loader!css-loader!sass-loader"
+                loader:extractTextWebPlugin.extract( { fallback: "style-loader", use: "css-loader!sass-loader"})
             },
             {
                 test: [/\.js$/, /\.es6$/],
